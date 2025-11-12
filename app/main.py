@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # app/main.py
 import streamlit as st
 from app.utils import load_data, filter_by_date, plot_solar_trends

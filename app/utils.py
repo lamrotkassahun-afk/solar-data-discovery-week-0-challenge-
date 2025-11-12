@@ -41,10 +41,12 @@ def plot_solar_trends(data: pd.DataFrame, variable: str):
     return fig
 
 
-def filter_by_date(data: pd.DataFrame, start_date, end_date):
-    """
-    Filters data by a date range selected by the user.
-    """
+def filter_by_date(data, start_date, end_date):
+    # Ensure both sides are datetime for comparison
+    data["Date"] = pd.to_datetime(data["Date"])
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date)
+
     filtered = data[(data["Date"] >= start_date) & (data["Date"] <= end_date)]
     return filtered
 
